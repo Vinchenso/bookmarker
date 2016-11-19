@@ -1,0 +1,22 @@
+<form {{action "save" bookmark on="submit"}}>
+  <p>
+    <label>Link: {{input name="link" value=bookmark.link}}</label>
+  </p>
+  <p>
+    <label>Title: {{input name="title" value=bookmark.title}}</label>
+  </p>
+  <p>
+    <label>About: {{input name="about" value=bookmark.about}}</label>
+  </p>
+  <p>
+    <label>Public: {{input type="checkbox" name="public"  checked=bookmark.public}}</label>
+  </p>
+  {{input type="hidden" name="user_id" value=bookmark.user_id}}
+  <input type="submit" value="Save" />
+  <button {{action "cancel"}} id="cancel">Cancel</button>
+  {{#unless bookmark.isNew}}
+    <button id='delete'{{action 'delete' bookmark}}>Delete</button>
+  {{/unless}}
+</form>
+
+{{yield}}
