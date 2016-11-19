@@ -1,4 +1,10 @@
 <h2>About</h2>
 {{#each model as |bookmark|}}
-  {{bookmark-listing bookmark = bookmark}}
+  {{#if bookmark.public}}
+    {{bookmark-listing bookmark = bookmark}}
+  {{else}}
+    <article>
+      Not public bookmark
+    </article>
+  {{/if}}
 {{/each}}
